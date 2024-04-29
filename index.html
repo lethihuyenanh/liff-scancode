@@ -10,8 +10,9 @@
   <main>
     <h1>Start to get barcode</h1>
     <button id="buttonScan">Click here to scan</button>
+    <div id="result"></div>
   </main>
-  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
 
@@ -22,10 +23,9 @@ const LIFF_ID = '2004747517-A4qWNO9d'; //h.a ID
 function liff_startScanner() {
   liff.scanCodeV2()
     .then((result) => {
-      alert(result.value);
-      // const stringifiedResult = JSON.stringify(result);
-      // document.getElementById('scanQrField').textContent = stringifiedResult;
-      alert(result.value)
+      const stringifiedResult = JSON.stringify(result);
+      document.getElementById('result').textContent = stringifiedResult;
+      console.log(result.value)
     })
     .catch((err) => {
       // console.log(err);
