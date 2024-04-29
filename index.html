@@ -23,8 +23,7 @@ const LIFF_ID = '2004747517-A4qWNO9d'; //h.a ID
 function liff_startScanner() {
   liff.scanCodeV2()
     .then((result) => {
-      const stringifiedResult = JSON.stringify(result);
-      document.getElementById('result').textContent = stringifiedResult;
+      document.getElementById('result').textContent = result.value;
       console.log(result.value)
     })
     .catch((err) => {
